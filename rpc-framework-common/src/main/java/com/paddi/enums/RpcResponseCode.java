@@ -12,17 +12,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @ToString
-public enum RpcResponseCodeEnum {
+public enum RpcResponseCode {
     SUCCESS(200, "The remote call is successful"),
     FAIL(500, "The remote call is fail");
 
-    /**
-     * response code
-     */
     private final int code;
 
-    /**
-     * response message
-     */
     private final String message;
 }
