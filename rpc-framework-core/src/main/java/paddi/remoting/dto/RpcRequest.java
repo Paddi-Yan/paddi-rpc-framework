@@ -1,6 +1,5 @@
-package com.paddi.dto;
+package paddi.remoting.dto;
 
-import com.paddi.constants.RpcMessageType;
 import lombok.*;
 
 import java.io.Serializable;
@@ -16,13 +15,12 @@ import java.io.Serializable;
 @Builder
 @ToString
 public class RpcRequest implements Serializable {
-    private static final long serialVersionUID = 1471796269683860558L;
+    private static final long serialVersionUID = -6361795692977910582L;
     private String requestId;
     private String interfaceName;
     private String methodName;
     private Object[] parameters;
     private Class<?>[] paramTypes;
-    private RpcMessageType rpcMessageType;
     /**
      * 服务版本，为不兼容升级提供可能
      */
@@ -32,6 +30,7 @@ public class RpcRequest implements Serializable {
      */
     private String group;
 
-
-
+    public String getRpcServiceName() {
+        return this.getInterfaceName() + this.getGroup() + this.getVersion();
+    }
 }
